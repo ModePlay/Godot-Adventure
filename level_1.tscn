@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkvcy741g3vox"]
+
+[ext_resource type="Texture2D" uid="uid://bke6fpjpmwa2c" path="res://icon.svg" id="1_ctjnk"]
+[ext_resource type="Script" path="res://MySprite.gd" id="2_ffmd3"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="MySprite" type="Sprite2D" parent="."]
+position = Vector2(580, 313)
+rotation = 3.14159
+scale = Vector2(2, 2)
+texture = ExtResource("1_ctjnk")
+script = ExtResource("2_ffmd3")
