@@ -1,11 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://i7l1dbxycmw8"]
+[gd_scene load_steps=22 format=3 uid="uid://i7l1dbxycmw8"]
 
-[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_awkr4"]
+[ext_resource type="Script" uid="uid://ctwhr4nkr7ny2" path="res://Scenes/Player/player.gd" id="1_awkr4"]
 [ext_resource type="Texture2D" uid="uid://d075k248uxqc5" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaRed2/SeparateAnim/Walk.png" id="2_em2bd"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kq1yk"]
-radius = 6.0
-height = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o2455"]
 atlas = ExtResource("2_em2bd")
@@ -142,15 +138,37 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kq1yk"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
+size = Vector2(8, 8)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_awkr4")
 move_speed = 60.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_kq1yk")
+push_strength = 400.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6qsor")
-animation = &"move_right"
-frame_progress = 0.726097
+animation = &"move_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(0.827036, 0.723709)
+shape = SubResource("CapsuleShape2D_kq1yk")
+
+[node name="InteractArea2D" type="Area2D" parent="."]
+position = Vector2(-7, 4)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D"]
+shape = SubResource("RectangleShape2D_a3d8c")
+debug_color = Color(0.789906, 0.000799163, 0.842778, 0.419608)
+
+[connection signal="body_entered" from="InteractArea2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="InteractArea2D" to="." method="_on_area_2d_body_exited"]

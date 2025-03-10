@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://crnwcij6yxhuu"]
+
+[ext_resource type="Texture2D" uid="uid://clvqvn1lalawd" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Monk/SpriteSheet.png" id="1_3am0f"]
+[ext_resource type="Script" uid="uid://cbrhopl6qt4wq" path="res://Scenes/NPC/npc.gd" id="1_bjna2"]
+[ext_resource type="Texture2D" uid="uid://btqrtcmax6qp" path="res://Assets/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_0s07e"]
+[ext_resource type="Texture2D" uid="uid://bqj2vge1xobvf" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/Monk/Faceset.png" id="4_aqj1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjna2"]
+size = Vector2(12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s07e"]
+atlas = ExtResource("1_3am0f")
+region = Rect2(0.551022, 0.00318336, 16.1975, 17.1193)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n8r46"]
+font_size = 42
+font_color = Color(0.00351917, 0.00351917, 0.00351917, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aqj1y"]
+font_size = 28
+
+[node name="NPC" type="StaticBody2D" groups=["interactable"]]
+process_mode = 3
+script = ExtResource("1_bjna2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bjna2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.25)
+scale = Vector2(1, 1.02941)
+texture = SubResource("AtlasTexture_0s07e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DialogueBoxTexture" type="TextureRect" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 422.0
+offset_right = 321.0
+offset_bottom = 480.0
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("3_0s07e")
+
+[node name="NPCIcon" type="TextureRect" parent="CanvasLayer/DialogueBoxTexture"]
+offset_left = 5.4054
+offset_top = 13.2432
+offset_right = 45.4054
+offset_bottom = 53.2432
+texture = ExtResource("4_aqj1y")
+
+[node name="DialogueLabel" type="Label" parent="CanvasLayer"]
+offset_left = 214.0
+offset_top = 468.0
+offset_right = 1099.0
+offset_bottom = 611.0
+text = "The deepest dreaming is in the doing. "
+label_settings = SubResource("LabelSettings_n8r46")
+autowrap_mode = 3
+
+[node name="NameLabel" type="Label" parent="CanvasLayer"]
+offset_left = 48.0
+offset_top = 423.0
+offset_right = 262.0
+offset_bottom = 462.0
+text = "Sensei"
+label_settings = SubResource("LabelSettings_aqj1y")
+vertical_alignment = 1
