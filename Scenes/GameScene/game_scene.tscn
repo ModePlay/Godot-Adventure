@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c1ywygi3iimik"]
+[gd_scene load_steps=33 format=4 uid="uid://c1ywygi3iimik"]
 
 [ext_resource type="Texture2D" uid="uid://bfbog6bolr43t" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_oi8ly"]
 [ext_resource type="Texture2D" uid="uid://l2txkj4jv83x" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_12ovb"]
@@ -14,6 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://bik3g8u2i8p1f" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/LionBoy/SpriteSheet.png" id="9_njm7v"]
 [ext_resource type="Texture2D" uid="uid://t2uagq2t683s" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/LionBoy/Faceset.png" id="10_bkvnf"]
 [ext_resource type="PackedScene" uid="uid://by0i14j3wkpwf" path="res://Scenes/Switch/switch.tscn" id="11_bkvnf"]
+[ext_resource type="Texture2D" uid="uid://c6w2edel8ytek" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/SpriteSheet.png" id="11_coono"]
+[ext_resource type="PackedScene" uid="uid://clecrrk1c8j3a" path="res://Scenes/Enemies/slime_enemy.tscn" id="12_6dkqd"]
+[ext_resource type="Texture2D" uid="uid://drjfue6xki6i5" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaBlue2/Faceset.png" id="12_auf0h"]
+[ext_resource type="AudioStream" uid="uid://cds8igdff34m" path="res://Assets/Ninja Adventure - Asset Pack/Musics/15 - Credit Theme.ogg" id="15_rpdpv"]
+[ext_resource type="PackedScene" uid="uid://c0fptp6ne872n" path="res://Scenes/Enemies/frog_king.tscn" id="20_auf0h"]
+[ext_resource type="PackedScene" uid="uid://b0whwk20uku3f" path="res://Scenes/Enemies/flame_lord.tscn" id="21_6at6t"]
+[ext_resource type="PackedScene" uid="uid://dupm5cf6cak8k" path="res://Scenes/Enemies/tengu.tscn" id="22_pwwki"]
+[ext_resource type="PackedScene" uid="uid://d3q1ct1gsq7co" path="res://Scenes/Enemies/cyclops.tscn" id="23_ipjqc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3t1u"]
 texture = ExtResource("1_oi8ly")
@@ -802,6 +810,10 @@ region = Rect2(0.551022, 0.00318336, 16.1975, 17.1193)
 atlas = ExtResource("9_njm7v")
 region = Rect2(0.551022, 0.00318336, 16.1975, 17.1193)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oieme"]
+atlas = ExtResource("11_coono")
+region = Rect2(0.551022, 0.00318336, 16.1975, 17.1193)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elpgg"]
 size = Vector2(9.99999, 82.4851)
 
@@ -831,7 +843,7 @@ tile_map_data = PackedByteArray("AAACAPr/AAACAAAAAAAAAPr/AAACAAAAAAABAPn/AAACAAA
 tile_set = SubResource("TileSet_3tron")
 
 [node name="Player" parent="ObstacleLayer" instance=ExtResource("4_elpgg")]
-position = Vector2(-14.9699, 18.6468)
+position = Vector2(258.48, -58.8847)
 
 [node name="Camera2D" type="Camera2D" parent="ObstacleLayer/Player"]
 zoom = Vector2(5, 5)
@@ -842,51 +854,73 @@ limit_bottom = 290
 
 [node name="NPC" parent="ObstacleLayer" instance=ExtResource("6_nr542")]
 position = Vector2(-45.9077, -13.7398)
-dialogue_lines = Array[String](["The deepest dreaming is in the doing.", "Do not practice only that which you know.", "Time is distance. So long traveller."])
+dialogue_lines = Array[String](["You have come a long way young Brem. Now, before sharpening a sword,", "you must first sharpen your mind. Touch the globe to begin your trial.", "Remember the balance of nature. Find your light in the shadow and ", "seal the bond with your blade against the foe."])
 
 [node name="NPC2" parent="ObstacleLayer" instance=ExtResource("6_nr542")]
 position = Vector2(-122.753, -8.83271)
-dialogue_lines = Array[String](["...Sensei's training... it's a nightmare....", "I can do hard things, right?", "...This is, it's going to be so worth it.", "Unh... Can't feel... my legs...."])
+dialogue_lines = Array[String](["Unh... Can't feel... my legs....", "Sensei says... 'The deepest dreaming is in the doing.' But... ", "This training is a nightmare! ", "Wha? Don't give up? I suppose I CAN do hard things, right? You're right.", "I'm going to stick with it. This is... it's going to be so worth it."])
 
 [node name="Sprite2D" parent="ObstacleLayer/NPC2" index="1"]
 texture = SubResource("AtlasTexture_dc78n")
 
 [node name="NPCIcon" parent="ObstacleLayer/NPC2/CanvasLayer/DialogueBoxTexture" index="0"]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 5.0
+offset_top = 13.0
+offset_right = 45.0
+offset_bottom = 53.0
 texture = ExtResource("8_6qy3m")
 
 [node name="DialogueLabel" parent="ObstacleLayer/NPC2/CanvasLayer" index="1"]
 text = "Sensei's training... it's a nightmare...."
 
 [node name="NameLabel" parent="ObstacleLayer/NPC2/CanvasLayer" index="2"]
-text = "Student"
+text = "Studentson"
 
 [node name="NPC3" parent="ObstacleLayer" instance=ExtResource("6_nr542")]
 position = Vector2(-41.9158, 56.9219)
-dialogue_lines = Array[String](["Rawr!", "Be brave in the face of adversity.", "Sensei seems calm.", "But there is a tempest underneath the surface.", "Ra-RAWR!"])
+dialogue_lines = Array[String](["Rawr!", "Be brave in the face of adversity.", "There is a time to fight, a time to be brave, and a time to run!", "Yin and Yang. Opposites. Embrace them and you'll find the way.", "Ra-RAWR!"])
 
 [node name="Sprite2D" parent="ObstacleLayer/NPC3" index="1"]
 texture = SubResource("AtlasTexture_rpdpv")
 
 [node name="NPCIcon" parent="ObstacleLayer/NPC3/CanvasLayer/DialogueBoxTexture" index="0"]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 5.0
+offset_top = 13.0
+offset_right = 45.0
+offset_bottom = 53.0
 texture = ExtResource("10_bkvnf")
 
 [node name="DialogueLabel" parent="ObstacleLayer/NPC3/CanvasLayer" index="1"]
 text = "Be brave in the face of adversity."
 
 [node name="NameLabel" parent="ObstacleLayer/NPC3/CanvasLayer" index="2"]
-text = "Lion Boy"
+text = "Izak"
+
+[node name="NPC4" parent="ObstacleLayer" instance=ExtResource("6_nr542")]
+position = Vector2(167.663, -44.1635)
+dialogue_lines = Array[String](["Brem, it's so good to see you! Is today the day you're getting your sword, too?", "You want to know how I did it? Wouldn't help. Every ninja walks their own path.", "Our trials will not be the same. But I guess I can give you one tip....", "Try not to get stuck in the trees or corners! Now you shouldn't keep Sensei waiting.", "Farewell, brother."])
+
+[node name="Sprite2D" parent="ObstacleLayer/NPC4" index="1"]
+texture = SubResource("AtlasTexture_oieme")
+
+[node name="NPCIcon" parent="ObstacleLayer/NPC4/CanvasLayer/DialogueBoxTexture" index="0"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 13.0
+offset_right = 45.0
+offset_bottom = 53.0
+texture = ExtResource("12_auf0h")
+
+[node name="NameLabel" parent="ObstacleLayer/NPC4/CanvasLayer" index="2"]
+text = "Blue"
+
+[node name="AudioStreamPlayer2D" parent="ObstacleLayer/NPC4" index="3"]
+position = Vector2(172.653, -52.0148)
 
 [node name="Switch" parent="ObstacleLayer" instance=ExtResource("11_bkvnf")]
+position = Vector2(-180.637, 85.3829)
 
 [node name="LockedDoor" parent="." instance=ExtResource("8_elpgg")]
 position = Vector2(167.663, -56.9219)
@@ -920,9 +954,32 @@ shape = SubResource("RectangleShape2D_nr542")
 position = Vector2(62.8736, -76.5501)
 shape = SubResource("RectangleShape2D_nr542")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("15_rpdpv")
+volume_db = -20.8
+autoplay = true
+parameters/looping = true
+
+[node name="FrogKing" parent="." instance=ExtResource("20_auf0h")]
+position = Vector2(117.763, -178.617)
+
+[node name="FlameLord" parent="." instance=ExtResource("21_6at6t")]
+position = Vector2(-274.448, -175.673)
+
+[node name="Cyclops" parent="." instance=ExtResource("23_ipjqc")]
+position = Vector2(-319.358, 237.502)
+
+[node name="Tengu" parent="." instance=ExtResource("22_pwwki")]
+position = Vector2(326.344, 182.543)
+
+[node name="SlimeEnemy" parent="." instance=ExtResource("12_6dkqd")]
+position = Vector2(296.404, 38.2751)
+
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 [connection signal="switch_activated" from="ObstacleLayer/Switch" to="PuzzleButton" method="_on_switch_switch_activated"]
 
 [editable path="ObstacleLayer/NPC2"]
 [editable path="ObstacleLayer/NPC3"]
+[editable path="ObstacleLayer/NPC4"]

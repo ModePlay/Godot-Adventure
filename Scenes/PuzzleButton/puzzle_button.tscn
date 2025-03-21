@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm0s5h7upa6s6"]
+[gd_scene load_steps=8 format=3 uid="uid://dm0s5h7upa6s6"]
 
 [ext_resource type="Script" uid="uid://dtkg6ifjca3u1" path="res://Scenes/PuzzleButton/puzzle_button.gd" id="1_dls00"]
 [ext_resource type="Texture2D" uid="uid://ba80p2fr8qg5q" path="res://Assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="2_lffmm"]
+[ext_resource type="AudioStream" uid="uid://cfj6a44nqik57" path="res://Assets/Ninja Adventure - Asset Pack/Sounds/Game/Gold2.wav" id="3_lffmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c66ud"]
 size = Vector2(16, 16)
@@ -45,6 +46,9 @@ shape = SubResource("RectangleShape2D_c66ud")
 sprite_frames = SubResource("SpriteFrames_s5max")
 animation = &"unpressed"
 autoplay = "unpressed"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lffmm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

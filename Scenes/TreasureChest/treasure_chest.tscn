@@ -1,0 +1,146 @@
+[gd_scene load_steps=19 format=3 uid="uid://p7ij2fj3hkou"]
+
+[ext_resource type="Script" uid="uid://b23hlk7q1332i" path="res://Scenes/TreasureChest/treasure_chest.gd" id="1_2tkyh"]
+[ext_resource type="Texture2D" uid="uid://dqm4285syyijn" path="res://Assets/Ninja Adventure - Asset Pack/Items/Treasure/BigTreasureChest.png" id="1_v1qrq"]
+[ext_resource type="Texture2D" uid="uid://dytocu773qci7" path="res://Assets/Ninja Adventure - Asset Pack/FX/Elemental/Thunder/SpriteSheet.png" id="3_2a6ve"]
+[ext_resource type="Texture2D" uid="uid://u1u0cyao1ypt" path="res://Assets/Ninja Adventure - Asset Pack/Items/Weapons/BigSword/Sprite.png" id="4_vnph0"]
+[ext_resource type="AudioStream" uid="uid://kxolne6b1c83" path="res://Assets/Ninja Adventure - Asset Pack/Sounds/Game/Success3.wav" id="5_vnph0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tkyh"]
+atlas = ExtResource("1_v1qrq")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdjdt"]
+atlas = ExtResource("1_v1qrq")
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2a6ve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tkyh")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdjdt")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnph0"]
+size = Vector2(16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b3qj"]
+atlas = ExtResource("3_2a6ve")
+region = Rect2(0, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2as5"]
+atlas = ExtResource("3_2a6ve")
+region = Rect2(20, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh1s0"]
+atlas = ExtResource("3_2a6ve")
+region = Rect2(40, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c8bv"]
+atlas = ExtResource("3_2a6ve")
+region = Rect2(60, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj17u"]
+atlas = ExtResource("3_2a6ve")
+region = Rect2(80, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgnv2"]
+atlas = ExtResource("3_2a6ve")
+region = Rect2(100, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc5ue"]
+atlas = ExtResource("3_2a6ve")
+region = Rect2(120, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hcsv"]
+atlas = ExtResource("3_2a6ve")
+region = Rect2(140, 0, 20, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25u5i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b3qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2as5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh1s0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c8bv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj17u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgnv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc5ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hcsv")
+}],
+"loop": true,
+"name": &"lightning",
+"speed": 10.0
+}]
+
+[node name="TreasureChest" type="StaticBody2D" groups=["interactable"]]
+script = ExtResource("1_2tkyh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2a6ve")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vnph0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="LightningEffect2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -19)
+rotation = -0.267795
+sprite_frames = SubResource("SpriteFrames_25u5i")
+animation = &"lightning"
+frame = 2
+frame_progress = 0.00117296
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -12)
+texture = ExtResource("4_vnph0")
+
+[node name="LightningEffect" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-1, -20)
+rotation = 0.280631
+scale = Vector2(0.738185, 1.32246)
+sprite_frames = SubResource("SpriteFrames_25u5i")
+animation = &"lightning"
+frame = 6
+frame_progress = 0.479446
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vnph0")
+volume_db = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

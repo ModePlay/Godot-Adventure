@@ -7,6 +7,7 @@ var buttons_pressed: int = 0
 func _on_puzzle_button_pressed() -> void:
 	buttons_pressed += 1
 	if buttons_pressed >= buttons_needed:
+		$AudioStreamPlayer2D.play()
 		print("Door: You may enter")
 		visible = false
 		$CollisionShape2D.set_deferred("disabled", true)

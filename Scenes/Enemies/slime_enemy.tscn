@@ -1,0 +1,215 @@
+[gd_scene load_steps=27 format=3 uid="uid://clecrrk1c8j3a"]
+
+[ext_resource type="Script" uid="uid://t47bkrmw5hjg" path="res://Scenes/Enemies/slime_enemy.gd" id="1_5uyk1"]
+[ext_resource type="Texture2D" uid="uid://dkip3uk2vkdnl" path="res://Assets/Ninja Adventure - Asset Pack/Actor/Monsters/Slime3/Slime3.png" id="1_p6sbt"]
+[ext_resource type="AudioStream" uid="uid://c56de2io4d4p6" path="res://Assets/Ninja Adventure - Asset Pack/Sounds/Game/Kill.wav" id="3_sv1en"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6sbt"]
+radius = 81.8596
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uyk1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv1en"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx8ge"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp8oh"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uyk1"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u7tg"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwhlm"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh62s"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4i4n"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld0qu"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmhxm"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tcdh"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqitv"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf5l7"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xypq"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2bhi"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33pvu"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mek6i"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiyn6"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmqne"]
+atlas = ExtResource("1_p6sbt")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1u7tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv1en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx8ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp8oh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uyk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u7tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwhlm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh62s")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4i4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld0qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmhxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tcdh")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqitv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf5l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xypq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2bhi")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33pvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mek6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiyn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmqne")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 10.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sv1en"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 5.0
+color = Color(0.634462, 0.823165, 0.892331, 1)
+
+[node name="SlimeEnemy" type="CharacterBody2D"]
+collision_layer = 16
+motion_mode = 1
+script = ExtResource("1_5uyk1")
+
+[node name="PlayerDetectArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea2D"]
+shape = SubResource("CircleShape2D_p6sbt")
+debug_color = Color(0, 0.894118, 0.207843, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.760001, 0.48)
+shape = SubResource("CircleShape2D_5uyk1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1u7tg")
+animation = &"move_down"
+autoplay = "default"
+
+[node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sv1en")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 80
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_sv1en")
+
+[connection signal="body_entered" from="PlayerDetectArea2D" to="." method="_on_player_detect_area_2d_body_entered"]
